@@ -53,22 +53,25 @@ public class ShowClientInState extends HttpServlet {
 				List<CustomerEntity> customerList = dao.customersInState(val);
 
 				// Afficher les propriétés du client			
-				out.println( "<table style='width:100%'>");
+out.println( "<table style='width:100%'>");
   out.println("<tr>");
-    out.println("<th>") Firstname out.println ("</th>");
-    <th>Lastname</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
+    out.println("<th> ID </th>"
+            + "<th>NAME</th>"
+            + "<th>Address</th>"
+            + " </tr>");
+    
+      for (CustomerEntity customer : customerList) {
+          
+          out.println( " <tr>"
+         + " <td>" + customer.getCustomerId()+ "</td>"
+         + "<td>" + customer.getName() + "</td>"
+         + "<td>" + customer.getAddressLine1() + "</td>"
+         + "</tr>");
+          
+          
+                }
+ 
+
 out.println("</table>");
                                         
 			} catch (Exception e) {
@@ -82,7 +85,7 @@ out.println("</table>");
 		}
            
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
