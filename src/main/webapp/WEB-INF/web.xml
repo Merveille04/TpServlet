@@ -8,6 +8,10 @@
         <servlet-name>ShowClientInState</servlet-name>
         <servlet-class>ShowClientInState</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShowListeState</servlet-name>
+        <servlet-class>ShowListeState</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowClient</servlet-name>
         <url-pattern>/ShowClient</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ShowClientInState</servlet-name>
         <url-pattern>/ShowClientInState</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowListeState</servlet-name>
+        <url-pattern>/ShowListeState</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
