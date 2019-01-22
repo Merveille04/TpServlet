@@ -44,20 +44,22 @@ public class ShowListeState extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             DAO dao = new DAO(DataSourceFactory.getDataSource());
-				List<String> CodeEtats = dao.ListeCodeEtats();
-            out.println("<select>");
-  out.println ("<option value='volvo'>   </option>");
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-
-            } catch (Exception e) {
-				out.printf("Erreur : %s", e.getMessage());
-			}
-			out.printf("<hr><a href='%s'>Retour au menu</a>", request.getContextPath());
-			out.println("</body>");
-			out.println("</html>");
+	    List<String> etats = dao.ListeCodeEtats();
+            out.println("<form action ='ShowClientInState' method ='POST'>");
+  out.println ("<select>");
+  for (String e : etats){
+  out.println("<option value="+e+">"); 
+  out.println(e);
+  out.println("</option>");
+  }
+out.println("</select>");
+out.println ("<input type ='submit' value = 'valider'>");
+out.println ("</form>");
+out.println ("</body>");
+out.println ("</html>");
+out.printf("<hr><a href='%s'>Retour au menu</a>", request.getContextPath());
+out.println("</body>");
+out.println("</html>");
 		} catch (Exception ex) {
 			Logger.getLogger("servlet").log(Level.SEVERE, "Erreur de traitement", ex);
 		}
