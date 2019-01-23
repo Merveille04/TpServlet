@@ -45,8 +45,9 @@ public class ShowListeState extends HttpServlet {
             out.println("<body>");
             DAO dao = new DAO(DataSourceFactory.getDataSource());
 	    List<String> etats = dao.ListeCodeEtats();
-            out.println("<form action ='ShowClientInState' method ='POST'>");
-  out.println ("<select>");
+            out.println("<form action ='ShowClientInState' method ='get'>");
+            
+  out.println ("<select name='state'>");// variable qui va récuperer la valeur choisie
   for (String e : etats){
   out.println("<option value="+e+">"); 
   out.println(e);
